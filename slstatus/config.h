@@ -70,6 +70,7 @@ static const struct arg args[] = {
 	{ run_command, "%2s%%  ",    "echo $(pamixer --get-volume)"},
 	{ datetime, "%s  ",           "%A %d/%m/%Y %r" },
 	{ battery_perc, "  %s%%",    "BAT1"},
-	{ ipv4 ,        " %s",       "tun0" }
-	
+	//{ ipv4 ,        " %s",       "tun0" }
+	{ run_command, "  %s", "ip -4 addr show tun0 2>/dev/null | grep -oP '(?<=inet\\s)\\d+(\\.\\d+){3}' || echo ''" },
+
 };
